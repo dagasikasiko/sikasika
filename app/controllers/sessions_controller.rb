@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
     user2 = User.find_by(pass: params[:session][:password])
     if user && user2
       # ユーザーログイン後にユーザー情報のページにリダイレクトする
+      $session_name = user
       redirect_to home_path
     else
       # エラーメッセージを作成する
